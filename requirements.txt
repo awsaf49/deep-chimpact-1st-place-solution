@@ -1,0 +1,13 @@
+tensorflow
+tensorflow-addons
+pandas
+tqdm
+matplotlib
+seaborn
+efficientnet
+keras-cv-attention-models==1.0.22
+keras-efficientnet-v2
+PyYAML>=5.1
+scikit-learn==1.0
+opencv-python
+ffmpeg-python
