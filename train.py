@@ -165,6 +165,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--cfg', type=str, default='./configs/deep-chimpact.yaml', help='config file')
     parser.add_argument('--debug', type=int, default=None, help='process only small portion in debug mode')
+    parser.add_argument('--model-name', type=str, default=None, help='name of the model')
     parser.add_argument('--img-size', type=int, nargs='+', default=None, help='image size: H x W')
     parser.add_argument('--batch-size', type=int, default=None, help='batch_size for the model')
     parser.add_argument('--selected-folds', type=int, nargs='+', default=None, help='folds to train')
@@ -183,6 +184,8 @@ if __name__ == '__main__':
     if opt.debug is not None:
         CFG.debug = opt.debug
     print('> DEBUG MODE:', bool(CFG.debug))
+    if opt.model_name is not None:
+        CFG.model_name = opt.model_name
     if opt.img_size is not None:
         assert len(opt.img_size)==2, 'image size must be H x W'
         CFG.img_size = opt.img_size
@@ -192,7 +195,8 @@ if __name__ == '__main__':
         output_dir = os.path.join(opt.output_dir, '{}-{}x{}'.format(CFG.model_name, CFG.img_size[0], CFG.img_size[1]))
         os.system(f'mkdir -p {output_dir}')
     else:
-        output_dir = os.path.join(os.getcwd(), '{}-{}x{}'.format(CFG.model_name, CFG.img_size[0], CFG.img_size[1]))
+        output_dir = os.path.join('output', '{}-{}x{}'.format(CFG.model_name, CFG.img_size[0], CFG.img_size[1]))
+        os.system(f'mkdir -p {output_dir}')
     CFG.output_dir = output_dir
     if opt.selected_folds:
         CFG.selected_folds = opt.selected_folds
