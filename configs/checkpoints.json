@@ -1,0 +1,5 @@
+[
+    ["../dc-eca-nfnetl0640x340nomask-train-ds", [360,640]],
+    ["../dc-resnest20021nobordbaseline-ds", [360,640]],
+    ["../dc-vit-b1621noborderbaseline-ds", [352,640]]
+]
