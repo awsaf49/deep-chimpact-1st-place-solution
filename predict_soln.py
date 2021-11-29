@@ -47,7 +47,6 @@ def predict_soln(CFG,ensemble=False):
         assert CFG.ds_path is not None        
         
         # META DATA
-        #test_df  = pd.read_csv(f'{CFG.ds_path}/test.csv')
         test_df = pd.read_csv(CFG.submission_csv)
         test_df['image_path'] = CFG.ds_path + '/test_images/' + test_df.video_id + '-' + test_df.time.map(lambda x: f'{x:03d}') + '.png'
         test_paths = test_df.image_path.tolist()
@@ -76,11 +75,7 @@ def predict_soln(CFG,ensemble=False):
         os.makedirs(INF_PATH,exist_ok=True)
         # PREDICTION FOR ONE MODEL -> N FOLDS
         for model_path in sorted(model_paths):
-            #fold = int(model_path.split('/')[-1].split('-')[-1].split('.')[0])
 
-            # if fold not in CFG.selected_folds:
-            #     continue
-            #print(f'Fold-{fold:02d}:')
             with strategy.scope():
                 model = tf.keras.models.load_model(model_path, compile=False)
             pred = model.predict(dtest, steps = CFG.tta*len(test_paths)/CFG.batch_size, verbose=1)
@@ -127,8 +122,6 @@ def predict_soln(CFG,ensemble=False):
     if ensemble:
         index = [1, 3, 0, 4, 2, 0]
         weights = [1, 0.43, 0.34, 0.18, 0.125, 0.065]
-#         index = [1, 0]
-#         weights = [1, 0.43]
         ens=MeanEnsemble(indices=index,weights=weights,sort=True)
         ens.fit_transform('checkpoints', rounding=True, save_dir=CFG.output_dir,with_oof=False,paths=sub_paths)
         #print(F'\n> FINAL SUBMISSION SAVED TO: {}')
@@ -140,10 +133,7 @@ if __name__ == '__main__':
     parser.add_argument('--cfg', type=str, default='configs/deep-chimpact.yaml', help='config file')
     parser.add_argument('--ckpt-cfg', type=str, default='configs/checkpoints.json', help='config file for checkpoint')
     parser.add_argument('--debug', type=int, default=None, help='process only small portion in debug mode')
-    #parser.add_argument('--input-path', type=str, default=None, help='path to the data')
-    #parser.add_argument('--submission-csv', type=str, default=None, help='path to the sample submission')
     parser.add_argument('--output-dir', type=str, default='submission', help='output path to save the submission')
-    #parser.add_argument('--selected_folds', type=int, default=None, nargs='+', help='selected folds')
     parser.add_argument('--tta', type=int, default=None, help='number of TTA')
     opt = parser.parse_args()
     
@@ -173,8 +163,7 @@ if __name__ == '__main__':
     if opt.debug is not None:
         CFG.debug = opt.debug
     print('> DEBUG MODE:', bool(CFG.debug))
-    # if opt.selected_folds is not None:
-    #     CFG.selected_folds = opt.selected_folds
+
     if opt.tta is not None:
         CFG.tta = opt.tta
         

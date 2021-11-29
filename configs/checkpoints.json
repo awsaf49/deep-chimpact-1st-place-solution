@@ -9,5 +9,5 @@
     ["output/EfficientNetV2M-450x800", [450,800]],
     ["output/EfficientNetV2M-576x1024", [576,1024]],
     ["output/ResNest200-360x640", [360,640]],
-    ["output/ResNest200-576x1024", [576,1024]],
+    ["output/ResNest200-576x1024", [576,1024]]
 ]
