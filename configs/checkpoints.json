@@ -1,13 +1,13 @@
 [
-    ["output/ECA_NFNetL2-360x640", [360,640]],
-    ["output/ECA_NFNetL2-450x800", [450,800]],
-    ["output/ECA_NFNetL2-576x1024", [576,1024]],
-    ["output/ECA_NFNetL2-720x1280", [720,1280]],
-    ["output/ECA_NFNetL2-900x1600", [900,1600]],
-    ["output/EfficientNetB7-360x640", [360,640]],
-    ["output/EfficientNetB7-450x800", [450,800]],
-    ["output/EfficientNetV2M-450x800", [450,800]],
-    ["output/EfficientNetV2M-576x1024", [576,1024]],
-    ["output/ResNest200-360x640", [360,640]],
-    ["output/ResNest200-576x1024", [576,1024]]
+    ["output/ECA_NFNetL2-360x640", [360,640],7],
+    ["output/ECA_NFNetL2-450x800", [450,800],6],
+    ["output/ECA_NFNetL2-576x1024", [576,1024],1],
+    ["output/ECA_NFNetL2-720x1280", [720,1280],9],
+    ["output/ECA_NFNetL2-900x1600", [900,1600],10],
+    ["output/EfficientNetB7-360x640", [360,640],3],
+    ["output/EfficientNetB7-450x800", [450,800],4],
+    ["output/EfficientNetV2M-450x800", [450,800],8],
+    ["output/EfficientNetV2M-576x1024", [576,1024],0],
+    ["output/ResNest200-360x640", [360,640],2],
+    ["output/ResNest200-576x1024", [576,1024],5]
 ]

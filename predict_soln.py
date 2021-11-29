@@ -1,4 +1,3 @@
-
 # IMPORT LIBRARIES
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # or any {'0', '1', '2'}
@@ -36,11 +35,12 @@ def predict_soln(CFG,ensemble=False):
     print('='*35)
     # PREDICTION FOR ALL MODELS
     sub_paths=[]
-    
-    for model_idx, (model_paths, dim) in enumerate(CFG.ckpt_cfg):
+    id_keys={}
+    for model_idx, (model_paths, dim,idx) in enumerate(CFG.ckpt_cfg):
         preds=[]
         start = time.time()
         model_name = model_paths[0].split('/')[-2]
+        
         print(f'> MODEL({model_idx+1}/{len(CFG.ckpt_cfg)}): {model_name} | DIM: {dim}')
         
         # TEST PATHS
@@ -117,13 +117,16 @@ def predict_soln(CFG,ensemble=False):
         SUB_PATH = os.path.abspath(f'{INF_PATH}/submission_{dim[0]}x{dim[1]}.csv')
         sub_df.to_csv(SUB_PATH,index=False)
         print(F'\n> SUBMISSION SAVED TO: {SUB_PATH}')
+        id_keys[idx]=SUB_PATH
         sub_paths.append(SUB_PATH)
         #print(sub_df.head(2))
     if ensemble:
-        index = [1, 3, 0, 4, 2, 0]
-        weights = [1, 0.43, 0.34, 0.18, 0.125, 0.065]
+        index = [9, 6, 10, 7, 1, 3, 10, 0, 9, 5, 1, 10]
+        all_sub_paths = [id_keys[x] for x in sorted(id_keys.keys())]
+        print(all_sub_paths)
+        weights = [0.43, 0.34, 0.18, 0.125, 0.085, 0.07, 0.04, 0.04, 0.025, 0.02, 0.025]
         ens=MeanEnsemble(indices=index,weights=weights,sort=True)
-        ens.fit_transform('checkpoints', rounding=True, save_dir=CFG.output_dir,with_oof=False,paths=sub_paths)
+        ens.fit_transform('checkpoints', rounding=True, save_dir=CFG.output_dir,with_oof=False,paths=all_sub_paths)
         #print(F'\n> FINAL SUBMISSION SAVED TO: {}')
     return
 
@@ -146,14 +149,14 @@ if __name__ == '__main__':
     # LOADING CKPT CFG
     CKPT_CFG_PATH = opt.ckpt_cfg
     CKPT_CFG = []
-    for base_dir,dim in  json.load(open(CKPT_CFG_PATH, 'r')):
+    for base_dir,dim,idx in  json.load(open(CKPT_CFG_PATH, 'r')):
         if '.h5' not in base_dir:
             paths = sorted(glob(os.path.join(base_dir, '*h5')))
         else:
             paths = [base_dir]
         if len(paths)==0:
             raise ValueError('no model found for :',base_dir)
-        CKPT_CFG.append([paths, dim])
+        CKPT_CFG.append([paths, dim,idx])
     CFG.ckpt_cfg = CKPT_CFG
 #     print('> CKPTS:',end='')
 #     for cfg in CKPT_CFG:
