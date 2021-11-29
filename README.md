@@ -35,15 +35,26 @@ Run [predict.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blo
 - **--a** 
 
 ## Full Pipeline
-```
-python prepare_data.py
-python train.py --img-size 360 640
-python train.py --img-size 450 800
-python train.py --img-size 576 1024
-python train.py --img-size 720 1280
-python train.py --img-size 900 1600
+<pre>
+!python3 prepare_data.py --data-dir data/raw
+
+!python3 train.py --model-name 'ECA_NFNetL2' --img-size 360 640 --batch-size 16
+!python3 train.py --model-name 'ECA_NFNetL2' --img-size 450 800 --batch-size 8
+!python3 train.py --model-name 'ECA_NFNetL2' --img-size 576 1024 --batch-size 4
+!python3 train.py --model-name 'ECA_NFNetL2' --img-size 720 1280 --batch-size 2
+!python3 train.py --model-name 'ECA_NFNetL2' --img-size 900 1600 --batch-size 1
+
+!python3 train.py --model-name 'ResNest200' --img-size 360 640 --batch-size 8
+!python3 train.py --model-name 'ResNest200' --img-size 576 1024 --batch-size 4
+
+!python3 train.py --model-name 'EfficientNetV2M' --img-size 450 800 --batch-size 16
+!python3 train.py --model-name 'EfficientNetV2M' --img-size 576 1024 --batch-size 8
+
+!python3 train.py --model-name 'EfficientNetB7' --img-size 360 640 --batch-size 16
+!python3 train.py --model-name 'EfficientNetB7' --img-size 450 800 --batch-size 8
+
 python predict.py
-```
+</pre>
 
 
 ## Infer Pipeline
@@ -51,45 +62,3 @@ python predict.py
 python prepare_data.py
 python predict_solu.py
 ```
-
-
-
-## List of Commands:
-<pre>
-!python3 prepare_data.py --data-dir data/raw
-
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 360 640 --batch-size 16
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 450 800 --batch-size 8
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 576 1024 --batch-size 4
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 720 1280 --batch-size 2
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 900 1600 --batch-size 1
-
-!python3 train.py --model-name 'ResNest200' --img-size 360 640 --batch-size 8
-!python3 train.py --model-name 'ResNest200' --img-size 576 1024 --batch-size 4
-
-!python3 train.py --model-name 'EfficientNetV2M' --img-size 450 800 --batch-size 16
-!python3 train.py --model-name 'EfficientNetV2M' --img-size 576 1024 --batch-size 8
-
-!python3 train.py --model-name 'EfficientNetB7' --img-size 360 640 --batch-size 16
-!python3 train.py --model-name 'EfficientNetB7' --img-size 450 800 --batch-size 8
-</pre>
-
-## List of Commands:
-<pre>
-!python3 prepare_data.py --data-dir data/raw
-
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 360 640 --batch-size 16
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 450 800 --batch-size 8
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 576 1024 --batch-size 4
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 720 1280 --batch-size 2
-!python3 train.py --model-name 'ECA_NFNetL2' --img-size 900 1600 --batch-size 1
-
-!python3 train.py --model-name 'ResNest200' --img-size 360 640 --batch-size 8
-!python3 train.py --model-name 'ResNest200' --img-size 576 1024 --batch-size 4
-
-!python3 train.py --model-name 'EfficientNetV2M' --img-size 450 800 --batch-size 16
-!python3 train.py --model-name 'EfficientNetV2M' --img-size 576 1024 --batch-size 8
-
-!python3 train.py --model-name 'EfficientNetB7' --img-size 360 640 --batch-size 16
-!python3 train.py --model-name 'EfficientNetB7' --img-size 450 800 --batch-size 8
-</pre>
