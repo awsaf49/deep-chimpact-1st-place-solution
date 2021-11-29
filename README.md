@@ -80,3 +80,7 @@ If doing infer without training, then run the 1st line to generate infer images 
 ``!python prepare_data.py --infer-only --data-dir data/raw ``
 
 ``!python predict_soln.py``
+
+## Solution Overview
+![image](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/images/deep_chimpact_solution.png)
+
