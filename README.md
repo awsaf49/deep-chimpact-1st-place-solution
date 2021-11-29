@@ -19,20 +19,37 @@ Required software are listed on [requirements.txt](https://github.com/awsaf49/de
 ### Data preparation
 First, the training and testing data should be downloaded from the competition website. Then run [prepare_data.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/prepare_data.py) with appropriate arguments which are explained below: 
 
+
 #### prepare_data.py
-- **--a** 
+- **--data-dir** directory for raw data (unprocessed videos)
+- **--save-dir** directory to save processed data (images extracted from videos)
+- **--debug** uses only 10 videos for processing if this mode id used
+- **--infer-only** generates images only for test videos
 
 ### Training
 Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/train.py) to train each of the 5 final models using appropriate arguments.
 
 #### train.py
-- **--a** 
+- **--cfg** config file path
+- **--debug** trains only with a small portion of the entire files
+- **--model-name** name of the model
+- **--img-size** image size. e.g. --img-size 576 1024
+- **--batch-size** batch size
+- **--selected-folds** selected folds for training. e.g. --selected-folds 0 1 2 
+- **--all-data** use all data for training. No validation data
+- **--ds-path** dataset path
+- **--output-dir** path to save model weights and necessary files
 
 ### Prediction
-Run [predict.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/predict.py) in order to predict on test images.
+Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/predict.py) in order to predict on test images.
+
 
 #### predict.py
-- **--a** 
+- **--cfg** config file path
+- **--ckpt-cfg** config file for already given checkpoints. If new models are to be evaluated, `--cfg` should be altered accordingly.
+- **--debug** trains only with a small portion of the entire files
+- **--output-dir** output folder to to save submission file
+- **--tta** number of TTA's
 
 ## Full Pipeline
 <pre>
