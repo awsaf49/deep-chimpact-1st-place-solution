@@ -44,7 +44,7 @@ Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/
 Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/predict.py) in order to predict on test images.
 
 
-#### predict.py
+#### predict_soln.py
 - **--cfg** config file path
 - **--ckpt-cfg** config file for already given checkpoints. If new models are to be evaluated, `--cfg` should be altered accordingly.
 - **--debug** trains only with a small portion of the entire files
@@ -70,12 +70,13 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 !python3 train.py --model-name 'EfficientNetV2M' --img-size 450 800 --batch-size 24 --scheduler 'exp' --loss 'Huber'
 !python3 train.py --model-name 'EfficientNetV2M' --img-size 576 1024 --batch-size 12 --scheduler 'exp' --loss 'Huber'
 
-!python predict.py
+!python predict_soln.py
 </pre>
 
 
 ## Infer Pipeline
-```
-python prepare_data.py
-python predict_solu.py
-```
+If doing infer without training, then run the 1st line to generate infer images and continue to the 2nd line. If training is done, then run the 2nd line only
+
+``!python prepare_data.py --infer-only --data-dir data/raw ``
+
+``!python predict_soln.py``
