@@ -137,6 +137,7 @@ def train(CFG):
         end = time.time()
         eta = (end-start)/60
         print(f'>>> TIME: {eta:0.2f} min\n\n')
+        
     
     if not CFG.all_data:
         # COMPUTE OVERALL OOF MAE
@@ -202,6 +203,7 @@ if __name__ == '__main__':
         CFG.selected_folds = opt.selected_folds
     if opt.all_data:
         CFG.all_data = opt.all_data
+    if CFG.all_data:
         CFG.selected_folds = [0]
         
     # CONFIGURE DEVICE

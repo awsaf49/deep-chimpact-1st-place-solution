@@ -9,7 +9,7 @@
 * OS: Amazon Linux
 * CUDA Version : 11.0
 * Driver Version : 450.119.04
-* CPU RAM : 16 GiB
+* CPU RAM : 128 GiB
 * DISK : 2 TB
 
 ## Software requirements
