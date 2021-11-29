@@ -64,7 +64,8 @@ def train(CFG):
         print('#'*25); print('#### FOLD',CFG.fold)
         print('#### IMAGE_SIZE: (%i, %i) | MODEL_NAME: %s | BATCH_SIZE: %i'%
             (CFG.img_size[0],CFG.img_size[1],CFG.model_name,CFG.batch_size*CFG.replicas))
-        print('#### OPTIMIZER: %s | LOSS: %s | PRETRAIN: %s'%(CFG.optimizer,CFG.loss,CFG.pretrain))
+        print('#### OPTIMIZER: %s | LOSS: %s | SCHEDULER: %s | PRETRAIN: %s'%(CFG.optimizer,CFG.loss,
+                                                                              CFG.scheduler,CFG.pretrain))
         train_images = len(train_paths)
         val_images   = len(valid_paths)
         print('#### NUM_TRAIN: %i | NUM_VALID: %i'%(train_images, val_images))
@@ -169,6 +170,8 @@ if __name__ == '__main__':
     parser.add_argument('--model-name', type=str, default=None, help='name of the model')
     parser.add_argument('--img-size', type=int, nargs='+', default=None, help='image size: H x W')
     parser.add_argument('--batch-size', type=int, default=None, help='batch_size for the model')
+    parser.add_argument('--loss', type=str, default=None, help='name of the loss function')
+    parser.add_argument('--scheduler', type=str, default=None, help='lr scheduler')
     parser.add_argument('--selected-folds', type=int, nargs='+', default=None, help='folds to train')
     parser.add_argument('--all-data', type=int, default=None, help='use all data for training no-val')
     parser.add_argument('--ds-path', type=str, default=None, help='path to dataset')
@@ -185,13 +188,17 @@ if __name__ == '__main__':
     if opt.debug is not None:
         CFG.debug = opt.debug
     print('> DEBUG MODE:', bool(CFG.debug))
-    if opt.model_name is not None:
+    if opt.model_name:
         CFG.model_name = opt.model_name
-    if opt.img_size is not None:
+    if opt.img_size:
         assert len(opt.img_size)==2, 'image size must be H x W'
         CFG.img_size = opt.img_size
     if opt.batch_size:
         CFG.batch_size = opt.batch_size
+    if opt.loss:
+        CFG.loss = opt.loss
+    if opt.scheduler:
+        CFG.scheduler = opt.scheduler
     if opt.output_dir:
         output_dir = os.path.join(opt.output_dir, '{}-{}x{}'.format(CFG.model_name, CFG.img_size[0], CFG.img_size[1]))
         os.system(f'mkdir -p {output_dir}')
