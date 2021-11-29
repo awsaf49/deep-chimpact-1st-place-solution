@@ -1,5 +1,5 @@
 debug: true
-all_data: false  # use pseudo data
+all_data: true  # use pseudo data
 ds_path: 'data/processed'
 verbose: 1
 device: GPU
@@ -14,9 +14,6 @@ selected_folds:
 - 2
 - 3
 - 4
-ds_size:
-- 360
-- 640
 img_size:
 - 360
 - 640
@@ -38,7 +35,6 @@ vzoom: 100.0 # inv proportional
 hshift: 5.0  # proportional
 vshift: 5.0  # proportional
 distortion_prob: 0.5 # optical & grid distortion probability
-equalize_prob: 0.0 # equalize histogram probability
 hflip: false # horizontal flip
 vflip: false # vertical flip
 clip: false
