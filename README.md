@@ -52,7 +52,7 @@ Then run [prepare_data.py](https://github.com/awsaf49/deep-chimpact-1st-place-so
 
 
 ### Training
-Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/train.py) to train each of the 5 final models using appropriate arguments.
+Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/train.py) to train final 11 models using appropriate arguments.
 
 #### train.py
 - **--cfg** config file path
@@ -139,7 +139,6 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 ...
  
 ```
-
 
 > Batch-Size for Inference is auto-configured for 1xP100 16GB GPU. If anyone wants to use different device with different memory following codes needs to be modified,
 
