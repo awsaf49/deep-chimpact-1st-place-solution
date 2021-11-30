@@ -23,11 +23,6 @@ from utils.ensemble import MeanEnsemble
 import time
 print('> IMPORT COMPLETE')
 
-## Add:
-    ## directory infer
-    ## manual resize
-    ## generate submission when sample is not found
-    ## ensemble
 
 def predict_soln(CFG,ensemble=False):
     print('='*35)
@@ -161,9 +156,7 @@ if __name__ == '__main__':
             raise ValueError('no model found for :',base_dir)
         CKPT_CFG.append([paths, dim,idx])
     CFG.ckpt_cfg = CKPT_CFG
-#     print('> CKPTS:',end='')
-#     for cfg in CKPT_CFG:
-#         print(cfg)
+
     
     # OVERWRITE
     if opt.debug is not None:
