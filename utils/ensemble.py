@@ -142,7 +142,7 @@ class MeanEnsemble(object):
             oof_df.pred = best_oof
             mae = mean_absolute_error(self.true, best_oof)
             if rounding:
-                tqdm.pandas(desc='rounding oof ', bar_format=tqdm_bar)
+                tqdm.pandas(desc='rounding ', bar_format=tqdm_bar)
                 oof_df = oof_df.progress_apply(get_shortest_distance, axis=1)
             oof_df.to_csv(os.path.join(save_dir,'ensemble_oof.csv'),index=False) if len(save_dir)>0 else None
             print()
@@ -157,7 +157,7 @@ class MeanEnsemble(object):
         sub_df = self.sub_dfs[0].copy()
         sub_df.distance = best_sub
         if rounding:
-            tqdm.pandas(desc='rounding oof ', bar_format=tqdm_bar)
+            tqdm.pandas(desc='rounding ', bar_format=tqdm_bar)
             sub_df = sub_df.progress_apply(get_shortest_distance, axis=1)
         save_path = os.path.abspath(os.path.join(save_dir, 'ensemble_submission.csv'))
         sub_df.to_csv(save_path,index=False) if len(save_dir)>0 else None
