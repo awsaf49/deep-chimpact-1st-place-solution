@@ -18,7 +18,7 @@ Required software are listed on [requirements.txt](https://github.com/awsaf49/de
 ## How to run
 ### Data preparation
 First, the training and testing data should be downloaded from the competition website. 
-ideally, the data can be placed in the data/raw folder in the repo directory. The repo tree would then look like below:
+ideally, the data can be placed in the `data/raw` folder in the repo directory. The repo tree would then look like below:
 ```
 ../deep-chimpact/
 ├── LICENSE.md
