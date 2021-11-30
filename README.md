@@ -38,9 +38,6 @@ ideally, the data can be placed in the `data/raw` folder in the repo directory. 
 │        ├── train_videos
 │        ├── video_access_metadata.csv
 │        └── video_download_instructions.txt
-├── meta_data
-│   ├── test.csv
-│   └── train.csv
 ...
 ```
 
