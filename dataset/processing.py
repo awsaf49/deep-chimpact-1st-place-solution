@@ -40,7 +40,7 @@ def load_video(filepath, fps=1):
 
 def video2image(df, image_dir, debug=False):
     if debug: 
-        df = df.iloc[:10]
+        df = df.iloc[:50]
     def convert(df, video_id):
         video_df = df.query("video_id==@video_id")
         video    = load_video(video_df.video_path.iloc[0], fps=1) # video path is same for all images within a video
