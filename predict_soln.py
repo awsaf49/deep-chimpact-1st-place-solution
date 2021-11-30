@@ -90,8 +90,6 @@ def predict_soln(CFG,ensemble=False):
             del sub_df['distance']
             sub_df = sub_df.merge(pred_df, on=['video_id','time'], how='left')
                 
-            
-            print()
         end = time.time()
         eta = (end-start)/60
         #print(f'>>> TIME FOR {model_name}: {eta:0.2f} min')
@@ -120,6 +118,8 @@ def predict_soln(CFG,ensemble=False):
         id_keys[idx]=SUB_PATH
         #sub_paths.append(SUB_PATH)
         #print(sub_df.head(2))
+        print('\n\n')
+        
     if ensemble:
         index = CFG.ensemble_idx
         weights = CFG.ensemble_weights #[0.43, 0.34, 0.18, 0.125, 0.085, 0.07, 0.04, 0.04, 0.025, 0.02, 0.025]
