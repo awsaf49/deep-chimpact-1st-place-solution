@@ -13,7 +13,7 @@
 * DISK : 2 TB
 
 ## Software requirements
-Required software are listed on [requirements.txt](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/requirements.txt). Please install all the dependencies before executing the pipeline.
+Required software are listed on [requirements.txt](requirements.txt). Please install all the dependencies before executing the pipeline.
 
 ## How to run
 You can check the [run.ipynb](notebooks/run.ipynb) notebook for the main point of entry to our code.
@@ -41,7 +41,7 @@ ideally, the data can be placed in the `data/raw` folder in the repo directory. 
 ...
 ```
 
-Then run [prepare_data.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/prepare_data.py) with appropriate arguments which are explained below: 
+Then run [prepare_data.py](prepare_data.py) with appropriate arguments which are explained below: 
 
 #### prepare_data.py
 - **--data-dir** directory for raw data (unprocessed videos) , default is 'data/raw' 
@@ -51,7 +51,7 @@ Then run [prepare_data.py](https://github.com/awsaf49/deep-chimpact-1st-place-so
 
 
 ### Training
-Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/train.py) to train final 11 models using appropriate arguments.
+Run [train.py](train.py) to train final 11 models using appropriate arguments.
 
 #### train.py
 - **--cfg** config file path
@@ -65,7 +65,7 @@ Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/
 - **--output-dir** path to save model weights and necessary files
 
 ### Prediction
-Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/predict.py) in order to predict on test images.
+Run [predict_soln.py](predict.py) in order to predict on test images.
 
 
 #### predict_soln.py
@@ -152,5 +152,5 @@ else:
 </pre>
 
 ## Graphical Abstract of Solution
-![image](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/images/deep_chimpact_solution.png)
+![image](images/deep_chimpact_solution.png)
 
