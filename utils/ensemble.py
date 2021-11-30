@@ -159,7 +159,7 @@ class MeanEnsemble(object):
         if rounding:
             tqdm.pandas(desc='rounding oof ', bar_format=tqdm_bar)
             sub_df = sub_df.progress_apply(get_shortest_distance, axis=1)
-        save_path = os.path.join(save_dir, 'ensemble_submission.csv')
+        save_path = os.path.abspath(os.path.join(save_dir, 'ensemble_submission.csv'))
         sub_df.to_csv(save_path,index=False) if len(save_dir)>0 else None
         print(f'>> ENSEMBLED SUBMISSION SAVED TO {save_path}')
         if with_oof:
