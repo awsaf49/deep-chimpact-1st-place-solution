@@ -101,12 +101,14 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 
 
 ## Infer Pipeline
-* **Infer without Training:** First download the checkpoints from [here](https://www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./output` directory then run the following codes. 
-
-* **Infer after Training:** After training is done, run the following codes.
-
+* **Infer without Training:** First download the checkpoints from [here](https://www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./output` directory then run the following codes.
 <pre>
 !python prepare_data.py --infer-only --data-dir data/raw
+!python predict_soln.py
+</pre>
+
+* **Infer after Training:** After training is done, run the following codes.
+<pre>
 !python predict_soln.py
 </pre>
 
