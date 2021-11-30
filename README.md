@@ -16,9 +16,11 @@
 Required software are listed on [requirements.txt](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/requirements.txt). Please install all the dependencies before executing the pipeline.
 
 ## How to run
+You can check the [run.ipynb](notebooks/run.ipynb) notebook for the main point of entry to our code.
+
 ### Data preparation
 First, the training and testing data should be downloaded from the competition website. 
-ideally, the data can be placed in the data/raw folder in the repo directory. The repo tree would then look like below:
+ideally, the data can be placed in the `data/raw` folder in the repo directory. The repo tree would then look like below:
 ```
 ../deep-chimpact/
 ├── LICENSE.md
@@ -36,9 +38,6 @@ ideally, the data can be placed in the data/raw folder in the repo directory. Th
 │        ├── train_videos
 │        ├── video_access_metadata.csv
 │        └── video_download_instructions.txt
-├── meta_data
-│   ├── test.csv
-│   └── train.csv
 ...
 ```
 
@@ -52,7 +51,7 @@ Then run [prepare_data.py](https://github.com/awsaf49/deep-chimpact-1st-place-so
 
 
 ### Training
-Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/train.py) to train each of the 5 final models using appropriate arguments.
+Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/train.py) to train final 11 models using appropriate arguments.
 
 #### train.py
 - **--cfg** config file path
@@ -78,7 +77,7 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 - **--tta** number of TTA's
 
 ## Full Pipeline
-<pre>
+```
 !python3 prepare_data.py --data-dir data/raw
 
 !python3 train.py --model-name 'ECA_NFNetL2' --img-size 360 640 --batch-size 32 --scheduler 'cosine' --loss 'Huber'
@@ -97,20 +96,20 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 !python3 train.py --model-name 'EfficientNetV2M' --img-size 576 1024 --batch-size 12 --scheduler 'exp' --loss 'Huber'
 
 !python predict_soln.py
-</pre>
+```
 
 
 ## Infer Pipeline
 * **Infer without Training:** First download the checkpoints from [here](https://www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./output` directory then run the following codes.
-<pre>
+```
 !python prepare_data.py --infer-only --data-dir data/raw
 !python predict_soln.py
-</pre>
+```
 
 * **Infer after Training:** After training is done, run the following codes.
-<pre>
+```
 !python predict_soln.py
-</pre>
+```
 
 > Before prediction, file tree would look like this:
 ```
@@ -139,7 +138,6 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 ...
  
 ```
-
 
 > Batch-Size for Inference is auto-configured for 1xP100 16GB GPU. If anyone wants to use different device with different memory following codes needs to be modified,
 
