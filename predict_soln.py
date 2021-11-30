@@ -125,7 +125,7 @@ def predict_soln(CFG,ensemble=False):
         weights = CFG.ensemble_weights #[0.43, 0.34, 0.18, 0.125, 0.085, 0.07, 0.04, 0.04, 0.025, 0.02, 0.025]
         
         all_sub_paths = [id_keys[x] for x in sorted(id_keys.keys())]
-        print(all_sub_paths)
+        #print(all_sub_paths)
         
         ens=MeanEnsemble(indices=index,weights=weights,sort=True)
         ens.fit_transform('checkpoints', rounding=True, save_dir=CFG.output_dir,with_oof=False,paths=all_sub_paths)
