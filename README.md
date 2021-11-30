@@ -17,14 +17,36 @@ Required software are listed on [requirements.txt](https://github.com/awsaf49/de
 
 ## How to run
 ### Data preparation
-First, the training and testing data should be downloaded from the competition website. Then run [prepare_data.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/prepare_data.py) with appropriate arguments which are explained below: 
+First, the training and testing data should be downloaded from the competition website. 
+ideally, the data can be placed in the data/raw folder in the repo directory. The repo tree would then look like below:
+```
+../deep-chimpact/
+├── LICENSE.md
+├── README.md
+├── configs
+│   ├── checkpoints.json
+│   └── deep-chimpact.yaml
+├── data
+│   └── raw
+│        ├── sample_submission.csv
+│        ├── test.csv
+│        ├── test_images
+│        ├── train.csv
+│        └── train_images
+├── meta_data
+│   ├── test.csv
+│   └── train.csv
+...
+```
 
+Then run [prepare_data.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/prepare_data.py) with appropriate arguments which are explained below: 
 
 #### prepare_data.py
-- **--data-dir** directory for raw data (unprocessed videos)
+- **--data-dir** directory for raw data (unprocessed videos) , default is 'data/raw' 
 - **--save-dir** directory to save processed data (images extracted from videos)
 - **--debug** uses only 10 videos for processing if this mode id used
 - **--infer-only** generates images only for test videos
+
 
 ### Training
 Run [train.py](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/train.py) to train each of the 5 final models using appropriate arguments.
@@ -47,6 +69,7 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 #### predict_soln.py
 - **--cfg** config file path
 - **--ckpt-cfg** config file for already given checkpoints. If new models are to be evaluated, `--cfg` should be altered accordingly.
+- **--model-dir** the directory where the models listed in config files are located. The complete model location is model-dir/ckpt-cfg model name.
 - **--debug** trains only with a small portion of the entire files
 - **--output-dir** output folder to to save submission file
 - **--tta** number of TTA's
@@ -75,8 +98,32 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 
 
 ## Infer Pipeline
-If doing infer without training, first download the checkpoints from [here](www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./checkpoints` directory then run the 1st line to generate infer images and continue to the 2nd line. If training is done, then run the 2nd line only
-
+If doing infer without training, first download the checkpoints from [here](www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./output` directory then run the 1st line to generate infer images and continue to the 2nd line. If training is done, then run the 2nd line only. Before prediction, file tree would look like this:
+```
+../deep-chimpact/
+...
+├── data
+│   └── processed
+│        ├── sample_submission.csv
+│        ├── test.csv
+│        ├── test_images
+│        ├── train.csv
+│        └── train_images
+...
+├── output
+│    ├── ECA_NFNetL2-360x640
+│    ├── ECA_NFNetL2-450x800
+│    ├── ECA_NFNetL2-576x1024
+│    ├── ECA_NFNetL2-720x1280
+│    ├── ECA_NFNetL2-900x1600
+│    ├── EfficientNetB7-360x640
+│    ├── EfficientNetB7-450x800
+│    ├── EfficientNetV2M-450x800
+│    ├── EfficientNetV2M-576x1024
+│    ├── ResNest200-360x640
+│    └── ResNest200-576x1024
+...
+```
 <pre>
 !python prepare_data.py --infer-only --data-dir data/raw
 !python predict_soln.py
