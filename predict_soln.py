@@ -135,6 +135,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--cfg', type=str, default='configs/deep-chimpact.yaml', help='config file')
     parser.add_argument('--ckpt-cfg', type=str, default='configs/checkpoints.json', help='config file for checkpoint')
+    parser.add_argument('--ds-path', type=str, default='data/', help='path to dataset')
     parser.add_argument('--debug', type=int, default=None, help='process only small portion in debug mode')
     parser.add_argument('--output-dir', type=str, default='submission', help='output path to save the submission')
     parser.add_argument('--tta', type=int, default=None, help='number of TTA')
@@ -175,8 +176,10 @@ if __name__ == '__main__':
     CFG.output_dir = opt.output_dir
     os.system(f'mkdir -p {CFG.output_dir}')
         
-    
-    CFG.ds_path = os.path.abspath(os.path.join(os.getcwd(),'data','processed'))
+    if opt.ds_path:
+        CFG.ds_path = opt.ds_path
+    else:
+        CFG.ds_path = os.path.abspath(os.path.join(os.getcwd(),'data','processed'))
     CFG.submission_csv = os.path.abspath(os.path.join(CFG.ds_path,'test.csv'))
     assert os.path.exists(CFG.ds_path)
         
