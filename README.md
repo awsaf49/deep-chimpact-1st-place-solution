@@ -78,7 +78,7 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 - **--tta** number of TTA's
 
 ## Full Pipeline
-<pre>
+```
 !python3 prepare_data.py --data-dir data/raw
 
 !python3 train.py --model-name 'ECA_NFNetL2' --img-size 360 640 --batch-size 32 --scheduler 'cosine' --loss 'Huber'
@@ -97,20 +97,20 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 !python3 train.py --model-name 'EfficientNetV2M' --img-size 576 1024 --batch-size 12 --scheduler 'exp' --loss 'Huber'
 
 !python predict_soln.py
-</pre>
+```
 
 
 ## Infer Pipeline
 * **Infer without Training:** First download the checkpoints from [here](https://www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./output` directory then run the following codes.
-<pre>
+```
 !python prepare_data.py --infer-only --data-dir data/raw
 !python predict_soln.py
-</pre>
+```
 
 * **Infer after Training:** After training is done, run the following codes.
-<pre>
+```
 !python predict_soln.py
-</pre>
+```
 
 > Before prediction, file tree would look like this:
 ```
