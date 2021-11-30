@@ -77,9 +77,22 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 ## Infer Pipeline
 If doing infer without training, then run the 1st line to generate infer images and continue to the 2nd line. If training is done, then run the 2nd line only
 
-``!python prepare_data.py --infer-only --data-dir data/raw ``
+<pre>
+!python prepare_data.py --infer-only --data-dir data/raw
 
-``!python predict_soln.py``
+!python predict_soln.py
+</pre>
+
+> Batch-Size for Inference is auto-configured for 1xP100 16GB GPU. If anyone wants to use different device with different memory following codes needs to be modified,
+<pre>
+mx_dim = np.sqrt(np.prod(dim))
+if mx_dim>=768:
+    CFG.batch_size = CFG.replicas * 16
+elif mx_dim>=640:
+    CFG.batch_size = CFG.replicas * 32
+else:
+    CFG.batch_size = CFG.replicas * 64
+</pre>
 
 ## Graphical Abstract of Solution
 ![image](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/images/deep_chimpact_solution.png)
