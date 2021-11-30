@@ -28,11 +28,14 @@ ideally, the data can be placed in the data/raw folder in the repo directory. Th
 │   └── deep-chimpact.yaml
 ├── data
 │   └── raw
-│        ├── sample_submission.csv
-│        ├── test.csv
-│        ├── test_images
-│        ├── train.csv
-│        └── train_images
+│        ├── submission_format.csv
+│        ├── test_metadata.csv
+│        ├── test_videos
+│        ├── train_labels.csv
+│        ├── train_metadata.csv
+│        ├── train_videos
+│        ├── video_access_metadata.csv
+│        └── video_download_instructions.txt
 ├── meta_data
 │   ├── test.csv
 │   └── train.csv
