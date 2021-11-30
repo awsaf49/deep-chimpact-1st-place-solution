@@ -96,7 +96,7 @@ def predict_soln(CFG,ensemble=False):
         eta = (end-start)/60
         #print(f'>>> TIME FOR {model_name}: {eta:0.2f} min')
     
-        print('> PROCESSING SUBMISSION')
+        print('>> PROCESSING SUBMISSION')
         # PROCESSS PREDICTION
         preds = getattr(np, CFG.agg)(preds, axis=0)   
         pred_df = pd.DataFrame({'image_path':test_paths,
@@ -116,9 +116,10 @@ def predict_soln(CFG,ensemble=False):
         # SAVE SUBMISSION
         SUB_PATH = os.path.abspath(f'{INF_PATH}/submission_{dim[0]}x{dim[1]}.csv')
         sub_df.to_csv(SUB_PATH,index=False)
-        print(F'\n> SUBMISSION SAVED TO: {SUB_PATH}')
+        print(F'\n>> SUBMISSION SAVED TO: {SUB_PATH}')
         id_keys[idx]=SUB_PATH
         sub_paths.append(SUB_PATH)
+        print()
         #print(sub_df.head(2))
     if ensemble:
         index = [9, 6, 10, 7, 1, 3, 10, 0, 9, 5, 1, 10]
