@@ -72,8 +72,8 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 #### predict_soln.py
 - **--cfg** config file path
 - **--ckpt-cfg** config file for already given checkpoints. If new models are to be evaluated, `--cfg` should be altered accordingly.
-- **--model-dir** the directory where the models listed in config files are located. The complete model location is model-dir/ckpt-cfg model name.
-- **--debug** trains only with a small portion of the entire files
+- **--model-dir** the directory where the models listed in config files are located. The complete model location is model-dir/{ckpt-cfg model name}.
+- **--debug** predicts only with a small portion of the entire files
 - **--output-dir** output folder to to save submission file
 - **--tta** number of TTA's
 
