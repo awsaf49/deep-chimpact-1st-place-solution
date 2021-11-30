@@ -5,6 +5,7 @@ Should contain the model folder name, the model dimensions and an index for each
 [
     ["Model Folder Name", [model_dims[0],model_dims[1]],model_index],
     ...
+]
 ```
 
 #### deep-chimpact.yaml
