@@ -16,6 +16,8 @@
 Required software are listed on [requirements.txt](https://github.com/awsaf49/deep-chimpact-1st-place-solution/blob/main/requirements.txt). Please install all the dependencies before executing the pipeline.
 
 ## How to run
+You can check the [run.ipynb](notebooks/run.ipynb) notebook for the main point of entry to our code.
+
 ### Data preparation
 First, the training and testing data should be downloaded from the competition website. 
 ideally, the data can be placed in the `data/raw` folder in the repo directory. The repo tree would then look like below:
