@@ -65,7 +65,7 @@ Run [train.py](train.py) to train final 11 models using appropriate arguments.
 - **--output-dir** path to save model weights and necessary files
 
 ### Prediction
-Run [predict_soln.py](predict.py) in order to predict on test images.
+Run [predict_soln.py](predict_soln.py) in order to predict on test images.
 
 
 #### predict_soln.py
