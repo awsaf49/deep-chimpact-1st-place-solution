@@ -101,7 +101,7 @@ Run [predict_soln.py](https://github.com/awsaf49/deep-chimpact-1st-place-solutio
 
 
 ## Infer Pipeline
-If doing infer without training, first download the checkpoints from [here](www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./output` directory then run the 1st line to generate infer images and continue to the 2nd line. If training is done, then run the 2nd line only. Before prediction, file tree would look like this:
+If doing infer without training, first download the checkpoints from [here](https://www.kaggle.com/dataset/eb7947ac7e0424d7db0dc7da4e3e84f4b5d5f10d7ac76fd4a7aa28d966c694dd) and place them on `./output` directory then run the 1st line to generate infer images and continue to the 2nd line. If training is done, then run the 2nd line only. Before prediction, file tree would look like this:
 ```
 ../deep-chimpact/
 ...
