@@ -77,7 +77,7 @@ Run [predict_soln.py](predict_soln.py) in order to predict on test images.
 - **--tta** number of TTA's
 
 ## Full Pipeline
-```
+```shell
 !python3 prepare_data.py --data-dir data/raw
 
 !python3 train.py --model-name 'ECA_NFNetL2' --img-size 360 640 --batch-size 32 --scheduler 'cosine' --loss 'Huber'
@@ -141,7 +141,7 @@ Run [predict_soln.py](predict_soln.py) in order to predict on test images.
 
 > Batch-Size for Inference is auto-configured for 1xP100 16GB GPU. If anyone wants to use different device with different memory following codes needs to be modified,
 
-<pre>
+```python3
 mx_dim = np.sqrt(np.prod(dim))
 if mx_dim>=768:
     CFG.batch_size = CFG.replicas * 16
@@ -149,7 +149,7 @@ elif mx_dim>=640:
     CFG.batch_size = CFG.replicas * 32
 else:
     CFG.batch_size = CFG.replicas * 64
-</pre>
+```
 
 ## Graphical Abstract of Solution
 ![image](images/deep_chimpact_solution.png)
