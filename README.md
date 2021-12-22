@@ -154,3 +154,8 @@ else:
 ## Graphical Abstract of Solution
 ![image](images/deep_chimpact_solution.png)
 
+## Acknowledgement ❤️
+* [Weights & Biases](https://wandb.ai/) for tracking **training**.
+* [keras_cv_attention_models](https://github.com/leondgarse/keras_cv_attention_models) for models.
+* [efficientnet](https://github.com/qubvel/efficientnet) for **efficientnet** model.
+
