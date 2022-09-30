@@ -14,4 +14,4 @@ keras-cv-attention-models==1.0.22
 keras-efficientnet-v2==1.1.5
 scikit-learn==1.0
 ffmpeg-python==0.2.0
-joblib==1.0.1
+joblib==1.2.0
