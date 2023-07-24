@@ -5,16 +5,19 @@
 
 # Method
 
+Check out this [Report](report/Solution%20Write-up.pdf) for detailed explanation of our solution.
+
 ## Visual Summary
+
 <img src="images/deep_chimpact_solution.png" width="600">
 
 # Results
 
-<img src="https://github.com/awsaf49/deep-chimpact-1st-place-solution/assets/36858976/a7aede08-ce73-41c7-8491-17090e8ed112" width="800">
+<img src="https://github.com/awsaf49/deep-chimpact-1st-place-solution/assets/36858976/a7aede08-ce73-41c7-8491-17090e8ed112" width="600">
 
-<img src="https://drivendata.co/images/deep-chimpact-maes.png" width="800">
+<img src="https://drivendata.co/images/deep-chimpact-maes.png" width="600">
 
-<img src="https://drivendata.co/images/deep-chimpact-distancexmae.png" width="800">
+<img src="https://drivendata.co/images/deep-chimpact-distancexmae.png" width="600">
 
 # How to Run
 
