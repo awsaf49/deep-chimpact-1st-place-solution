@@ -3,6 +3,23 @@
 
 ![image](https://user-images.githubusercontent.com/36858976/138281204-c3cbcb77-11ca-448b-a693-cb3cfa3c5181.png)
 
+# Method
+
+## Visual Summary
+<img src="images/deep_chimpact_solution.png" width="600">
+
+# Results
+
+<img src="https://github.com/awsaf49/deep-chimpact-1st-place-solution/assets/36858976/a7aede08-ce73-41c7-8491-17090e8ed112" width="800">
+
+<img src="https://drivendata.co/images/deep-chimpact-maes.png" width="800">
+
+<img src="https://drivendata.co/images/deep-chimpact-distancexmae.png" width="800">
+
+# How to Run
+
+This repository is also used in  **Official** codebase of **DriveData** [here](https://github.com/drivendataorg/deep-chimpact-winners/tree/master/1st%20Place)
+
 ## Hardware requirements
 * GPU (model or N/A):   8x NVIDIA Tesla V100
 * Memory (GB):   8 x 32GB
@@ -151,10 +168,7 @@ else:
     CFG.batch_size = CFG.replicas * 64
 ```
 
-## Graphical Abstract of Solution
-![image](images/deep_chimpact_solution.png)
-
-## Acknowledgement ❤️
+# Acknowledgement
 * [Weights & Biases](https://wandb.ai/) for tracking **training**.
 * [keras_cv_attention_models](https://github.com/leondgarse/keras_cv_attention_models) for models.
 * [efficientnet](https://github.com/qubvel/efficientnet) for **efficientnet** model.
