@@ -5,7 +5,7 @@
 
 # Method
 
-Check out this [Report](report/Solution%20Write-up.pdf) for detailed explanation of our solution.
+Check out our [Report](report/Solution%20Write-up.pdf) and this [Blog from DrivenData](https://drivendata.co/blog/deep-chimpact-challenge-winners/) for detailed explanation of our solution.
 
 ## Visual Summary
 
